@@ -16,14 +16,14 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 14
       - name: Install Dependencies
-        run: yarn install
+        run: npm install
 
       - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-actions@master
+        uses: sonarsource/sonarqube-scan-actions@developer
         env:
           SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
           SONAR_HOST_URL: ${{secrets.SONAR_HOST_URL}}
